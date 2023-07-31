@@ -1,0 +1,24 @@
+{% extends 'librosapp/index.html' %}
+{% load static %}
+
+{% block titulo %}
+Resultados de Búsqueda
+{% endblock titulo %}
+
+{% block  cabecera %}
+Resultados de Búsqueda
+{% endblock cabecera %}
+
+{% block contenido %}
+
+    {% if libros %}
+        <ul>
+            {% for libro in libros %}
+                <li>{{ libro.titulo }} - {{ libro.autor }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+    <a href="{% url 'buscar_libros' %}">Realizar otra búsqueda</a>
+{% endblock contenido %}
